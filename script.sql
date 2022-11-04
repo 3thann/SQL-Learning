@@ -3,21 +3,21 @@ CREATE DATABASE IF NOT EXISTS biblio;
 USE biblio;
 
 DROP TABLE IF EXISTS auteurs;
-CREATE TABLE IF NOT EXISTS auteur(
+CREATE TABLE IF NOT EXISTS auteurs(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255),
     prenom VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS genres;
-CREATE TABLE IF NOT EXISTS genre(
+CREATE TABLE IF NOT EXISTS genres(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     genre VARCHAR(255)
 );
 
 
 DROP TABLE IF EXISTS livres;
-CREATE TABLE IF NOT EXISTS livre(
+CREATE TABLE IF NOT EXISTS livres(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     titre VARCHAR(255),
     auteur_id INT,
@@ -26,18 +26,17 @@ CREATE TABLE IF NOT EXISTS livre(
     FOREIGN KEY (genre_id) REFERENCES genre(id)
 );
 
-INSERT INTO auteur VALUES(NULL, 'Baudelaire', 'Charles');
-INSERT INTO auteur VALUES(NULL, 'Moliere', NULL);
-INSERT INTO auteur VALUES(NULL, 'Rowling', 'J. K.');
+INSERT INTO auteurs VALUES(NULL, 'Baudelaire', 'Charles');
+INSERT INTO auteurs VALUES(NULL, 'Moliere', NULL);
+INSERT INTO auteurs VALUES(NULL, 'Rowling', 'J. K.');
 
-INSERT INTO genre VALUES(NULL, 'Theatre');
-INSERT INTO genre VALUES(NULL, 'Roman');
-INSERT INTO genre VALUES(NULL, 'Poesie');
+INSERT INTO genres VALUES(NULL, 'Theatre');
+INSERT INTO genres VALUES(NULL, 'Roman');
+INSERT INTO genres VALUES(NULL, 'Poesie');
 
-INSERT INTO livre VALUES(NULL, 'Le cygne', 1, 3);
-INSERT INTO livre VALUES(NULL, "L'avare", 2, 1);
-INSERT INTO livre VALUES(NULL, "Harry Potter", 3, 2);
-
+INSERT INTO livres VALUES(NULL, 'Le cygne', 1, 3);
+INSERT INTO livres VALUES(NULL, "L'avare", 2, 1);
+INSERT INTO livres VALUES(NULL, "Harry Potter", 3, 2);
 
 
 GRANT ALL PRIVILEGES ON biblio TO 'toto'@'localhost' IDENTIFIED BY 'toto';
